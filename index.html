@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lili de Lulu</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1 id="title">Lili de Lulu</h1>
+      <h2 id="headline">Só mais um dia de derrota</h2>
+      <button
+        id="party-button"
+        class="party-button disabled"
+        onclick="party()"
+        disabled
+      >
+        Quase lá...
+      </button>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script>
+      const jsConfetti = new JSConfetti();
+      const targetUnixDate = 1639080000000;
+
+      function party() {
+        jsConfetti.addConfetti();
+      }
+
+      function checkDate() {
+        const actualDate = Date.now();
+
+        if (actualDate >= targetUnixDate) {
+          prepareParty();
+        }
+      }
+
+      function prepareParty() {
+        const title = document.querySelector("#title");
+        const headline = document.querySelector("#headline");
+        const partyButton = document.querySelector("#party-button");
+
+        title.innerHTML = "Lili cantou porr# 🎉";
+        headline.innerHTML = "Bora comemorar!!";
+        partyButton.innerHTML = "Bora Lulu!";
+        partyButton.classList = ["party-button"];
+        partyButton.disabled = false;
+      }
+
+      checkDate();
+    </script>
+  </body>
+</html>
